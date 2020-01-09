@@ -7,9 +7,14 @@
   </head>
   <body>
     <h1>Hello World!</h1>
-    <hr/>
-    <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
-    <hr/>
+    <form>
+      Rock, Paper, or Scissors (use R, P, or S): <input type="text" name="FirstName" id="rpc"><br>
+      Rock, Paper, or Scissors (use R, P, or S): <input type="text" name="LastName" id="rpcTwo"><br>
+      <hr>
+      <button onclick="rockPaperScissors(getElementById('rpc').value, getElementById('rpcTwo').value)
+      ">Result</button>
+      <p id="final"></p>
+      </form>
+      
   </body>
 </html>
