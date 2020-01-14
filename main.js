@@ -16,32 +16,32 @@ document.getElementById("rpc").onclick, document.getElementById("rpcTwo").onclic
 
     if (hand1 === hand2) {
       // answer = 'Its a tie'
-      // return 'Its a tie'
+      return 'Its a tie'
       document.getElementById("final").innerHTML = 'Its a tie!'
     }
     else if (hand1 === "S" && hand2 === "P") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 1 wins!'
     }
      else if (hand1 === "S" && hand2 === "R") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 2 wins!'
     }
      else if (hand1 === "P" && hand2 === "R") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 1 wins!'
     }
      else if (hand1 === "P" && hand2 === "S") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 2 wins!'
     }
      else if (hand1 === "R" && hand2 === "P") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 2 wins!'
     }
      else if (hand1 === "R" && hand2 === "S") {
       // answer = 'Its a tie'
-      return 'Its a tie'
+      return 'Player 1 wins!'
     }
     else {
       return 'Something went wrong!'
