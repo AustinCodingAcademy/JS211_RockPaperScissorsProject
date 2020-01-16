@@ -18,7 +18,7 @@ const rockPaperScissors = (hand1, hand2) => {
   hand2 = hand2.trim().toLowerCase();
  
 
-  if (hand1 == hand2) {
+  if (hand1 == hand2 && hand1 !== '' && hand2 !=='') {
     console.log("It's a tie!");
     return "It's a tie!";
   }
@@ -86,6 +86,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should ask for input one or both of the inputs are left blank', () => {
+      assert.equal(rockPaperScissors('', ''), "Invalid input.");
+      assert.equal(rockPaperScissors('', 'rock'), "Invalid input.");
+      assert.equal(rockPaperScissors('rock', ''), "Invalid input.");
     });
   });
 } else {
