@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="main.js"></script>
   </head>
   <body>
     <h1>Hello World!</h1>
     <hr/>
     <div id="display-element"></div>
     <button onclick="displayDate()">Click Me</button>
+    <input type="text" id="first-hand" name="first-hand" value="" onkeyup="storeHand(this.id, this.value)">
+    <input type="text" id="second-hand" name="second-hand" value="" onkeyup="storeHand(this.id, this.value)">
+    <button onclick="display-results">hands</button>
     <hr/>
+    <script src="main.js"></script>
   </body>
 </html>
