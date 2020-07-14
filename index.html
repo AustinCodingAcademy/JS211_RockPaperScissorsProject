@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title></title>
-    <script src="main.js"></script>
   </head>
   <body>
     <h1>Hello World!</h1>
-    <hr/>
-    <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
-    <hr/>
+    <hr />
+    <div id="RPS"></div>
+    <input type="text" id="first-hand" value="" name ="first-name" onkeyup="storeHand(this.id, this.value)"></input>
+    <input type="text" id="second-hand" value="" name ="second-name" onkeyup="storeHand(this.id, this.value)"></input>
+    <button onclick="displayResults()">Click Me</button>
+    <hr />
+    <script src="main.js"></script>
   </body>
 </html>
