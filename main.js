@@ -1,6 +1,9 @@
 // uses strict mode so strings are not coerced, variables are not hoisted, etc... 
 'use strict';
 
+// let valueOne = ""
+// let valueTwo = ""
+
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -12,6 +15,24 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+
+// const displayResults = () => {
+  
+//   if (valueOne && valueTwo) {
+//     document.getElementById("RPS").innerHTML = rockPaperScissors(valueOne, valueTwo)
+//   } else {
+//     document.getElementById("RPS").innerHTML = "Please input rock, paper, or scissors."
+//   }
+// }
+
+// const storeHand = (id, value) => {
+//   if (id == "first-hand") {
+//     valueOne = value
+//   }  else if (id == "second-hand") {
+//     valueTwo = value
+//   }
+// }
+
 const rockPaperScissors = (firstHand, secondHand) => {
 
   let hand1 = firstHand.toLowerCase().trim()
