@@ -12,11 +12,46 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
+const rockPaperScissors = (firstHand, secondHand) => {
 
-  // Write code here
-  // Use the unit test to see what is expected
+  let hand1 = firstHand.toLowerCase().trim()
+  let hand2 = secondHand.toLowerCase().trim()
+  
+  switch (hand1) {
+    
+    case 'rock':
+      switch (hand2) {
+        case 'rock':
+          return "It's a tie!"
+        case 'paper':
+          return "Hand two wins!"
+        case 'scissors':
+          return "Hand one wins!"
+      }
+    break;
 
+    case 'paper':
+      switch (hand2) {
+        case 'rock':
+          return "Hand one wins!"
+        case 'paper':
+          return "It's a tie!"
+        case 'scissors':
+          return "Hand two wins!"
+      }
+    break;
+
+    case 'scissors':
+      switch (hand2) {
+        case 'rock':
+          return "Hand two wins!"
+        case 'paper':
+          return "Hand one wins!"
+        case 'scissors':
+          return "It's a tie!"
+      } 
+    break;  
+  }
 }
 
 // the first function called in the program to get an input from the user
