@@ -38,7 +38,7 @@ const displayResults = () => {
 
 
 const rockPaperScissors = (firstHand, secondHand) => {
-
+  console.log(firstHand)
   let hand1 = firstHand.toLowerCase().trim()
   let hand2 = secondHand.toLowerCase().trim()
 
@@ -114,6 +114,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    //
+    it('should test for input before moving to next turn', () => {
+      assert.equal(rockPaperScissors(undefined, ' paper '), "You suck");
+      assert.equal(rockPaperScissors('Paper', undefined), "Don't be dumb");
     });
   });
 } else {
