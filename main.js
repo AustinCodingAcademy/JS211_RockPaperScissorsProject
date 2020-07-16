@@ -37,9 +37,11 @@ const rockPaperScissors = (firstHand, secondHand) => {
 
   let hand1 = firstHand.toLowerCase().trim()
   let hand2 = secondHand.toLowerCase().trim()
+
+
   
   switch (hand1) {
-    
+
     case 'rock':
       switch (hand2) {
         case 'rock':
@@ -72,6 +74,7 @@ const rockPaperScissors = (firstHand, secondHand) => {
           return "It's a tie!"
       } 
     break;  
+
   }
 }
 
