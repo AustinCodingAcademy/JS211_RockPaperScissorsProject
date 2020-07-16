@@ -106,6 +106,10 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
+    it('should test for input before next turn', () => {
+      assert.equal(rockPaperScissors(undefined, 'paper'), "You going to let the other player win?");
+      assert.equal(rockPaperScissors('Paper', undefined), "Seriously? Make a play!");
+    });
   });
 } else {
 
