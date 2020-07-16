@@ -1,6 +1,9 @@
 // uses strict mode so strings are not coerced, variables are not hoisted, etc... 
 'use strict';
 
+let value1 = ""
+let value2 = ""
+
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -12,12 +15,71 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
+
+//1 create two inputs
+//2 create a function that when inputs are typed in is called and saves inputs to two different global variables
+//3 create a button 
+//4 create a function, that when button is clicked, displays the results of RPS function 
+const storeHand = (id,value) => {
+  if (id == "first-hand") {
+    value1 = value 
+  } else if (id == "second-hand") {
+    value2 = value 
+  }
+}
+
+const displayResults = () => {
+  if (value1 && value2){
+    document.getElementById("RPS").innerHTML = rockPaperScissors(value1, value2) 
+  } else {
+    return  document.getElementById("RPS").innerHTML = "FAIL" 
+  }
+}
+
+
+const rockPaperScissors = (firstHand, secondHand) => {
+  console.log(firstHand)
+  let hand1 = firstHand.toLowerCase().trim()
+  let hand2 = secondHand.toLowerCase().trim()
+
+  // should detect a tie
+
+   if (hand1 === 'rock' && hand2 === 'rock') {
+     return "It's a tie!"
+   }
+   if (hand1 === 'paper' && hand2 === 'paper') {
+     return "It's a tie!"
+   }
+   if (hand1 === 'scissors' && hand2 === 'scissors') {
+    return "It's a tie!"
+  }
+
+//  should detect which hand won 
+
+    if (hand1 === 'rock' && hand2 === 'paper') {
+      return "Hand two wins!"
+    }
+    if (hand1 === 'paper' && hand2 === 'scissors') {
+      return "Hand two wins!"
+    }
+    if (hand1 === 'rock' && hand2 === 'scissors') {
+      return "Hand one wins!"
+    }
+    if (hand1 === 'paper' && hand2 === 'rock') {
+      return "Hand one wins!"
+      }
+    if (hand1 === 'scissors' && hand2 === 'rock') {
+      return "Hand two wins!"
+      }
+    if (hand1 === 'scissors' && hand2 === 'paper') {
+      return "Hand one wins!"
+      }
+    }
+
 
   // Write code here
   // Use the unit test to see what is expected
 
-}
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -52,6 +114,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    //
+    it('should test for input before moving to next turn', () => {
+      assert.equal(rockPaperScissors(undefined, ' paper '), "You suck");
+      assert.equal(rockPaperScissors('Paper', undefined), "Don't be dumb");
     });
   });
 } else {
