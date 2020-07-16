@@ -1,6 +1,9 @@
 // uses strict mode so strings are not coerced, variables are not hoisted, etc... 
 'use strict';
 
+let value1 = ""
+let value2 = ""
+
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -10,6 +13,28 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+//1 create two inputs
+//2 create a function that when inputs are typed in is called and saves inputs to two different global variables
+//3 create a button 
+//4 create a function, that when button is clicked, displays the results of RPS function
+
+
+const storeHands = (value, id) => {
+  
+  if ( id == "first-hand"){
+    value1 = value
+  } else if (id == "second-hand"){
+    value2 = value
+  }
+
+}
+
+const displayResults = () => {
+  
+  document.getElementById("Rdisplay-element").innerHTML = rockPaperScissors(value1, value2)
+
+}
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (firstHand, secondHand) => {
