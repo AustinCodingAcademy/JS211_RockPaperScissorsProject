@@ -16,7 +16,7 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   if (hand1 === hand2){
-    console.log("It's a tie!");
+    return "It's a tie!";
   } else if (hand1 === 'rock'){
       if (hand2 === 'paper'){
         console.log("Hand two wins!");
