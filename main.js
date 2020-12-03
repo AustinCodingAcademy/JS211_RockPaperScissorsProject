@@ -15,22 +15,22 @@ const rl = readline.createInterface({
 const rockPaperScissors = (hand1, hand2) => {
  
   // Write code here
-  if (hand1.trim() === hand2.trim()){
+  if (hand1.trim().toLowerCase() === hand2.trim().toLowerCase()){
     return "It's a tie!";
-  } else if (hand1.trim() === 'rock'){
-      if (hand2.trim() === 'paper'){
+  } else if (hand1.trim().toLowerCase() === 'rock'){
+      if (hand2.trim().toLowerCase() === 'paper'){
         return "Hand two wins!";
       } else{
         return "Hand one wins!"
       }
-  } else if (hand1.trim() === 'paper'){
-      if (hand2.trim() === 'rock'){
+  } else if (hand1.trim().toLowerCase() === 'paper'){
+      if (hand2.trim().toLowerCase() === 'rock'){
         return "Hand one wins!"
       } else {
         return "Hand two wins!"
       }
   } else{
-      if(hand2.trim() === 'rock'){
+      if(hand2.trim().toLowerCase() === 'rock'){
         return "Hand two wins!";
       } else{
         return "Hand one wins!";
