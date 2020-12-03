@@ -15,6 +15,27 @@ const rl = readline.createInterface({
 const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
+  if (hand1 === hand2){
+    console.log("It's a Tie!");
+  } else if (hand1 === 'rock'){
+      if (hand2 === 'paper'){
+        console.log("hand2 Wins!!");
+      } else{
+        console.log("hand1 Wins!!");
+      }
+  } else if (hand1 === 'paper'){
+      if (hand2 === 'rock'){
+        console.log("hand1 Wins!!");
+      } else {
+        console.log("hand2 Wins!!");
+      }
+  } else{
+      if(hand2 === 'rock'){
+        console.log("hand2 Wins!!");
+      } else{
+        console.log("hand1 Wins!!");
+      }
+  }
   // Use the unit test to see what is expected
 
 }
