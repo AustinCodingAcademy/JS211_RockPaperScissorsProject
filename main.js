@@ -16,24 +16,24 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   if (hand1 === hand2){
-    console.log("It's a Tie!");
+    console.log("It's a tie!");
   } else if (hand1 === 'rock'){
       if (hand2 === 'paper'){
-        console.log("hand2 Wins!!");
+        console.log("Hand two wins!");
       } else{
-        console.log("hand1 Wins!!");
+        console.log("Hand one wins!");
       }
   } else if (hand1 === 'paper'){
       if (hand2 === 'rock'){
-        console.log("hand1 Wins!!");
+        console.log("Hand one wins!");
       } else {
-        console.log("hand2 Wins!!");
+        console.log("Hand two wins!");
       }
   } else{
       if(hand2 === 'rock'){
-        console.log("hand2 Wins!!");
+        console.log("Hand two wins!");
       } else{
-        console.log("hand1 Wins!!");
+        console.log("Hand one wins!");
       }
   }
   // Use the unit test to see what is expected
