@@ -20,7 +20,7 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   if (hand1 === hand2){
-    return "It's a Tie!";
+    return "It's a tie!";
   } else if (hand1 === 'rock'){
       if (hand2 === 'paper'){
         return "Hand two wins!";
