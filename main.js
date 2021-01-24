@@ -18,16 +18,18 @@ function displayDate(){
 }
 
 function rockPaperScissors(hand1, hand2){
-
+  
+  //if either hand isnt a string, return 'try again'
   if(typeof hand1 !== 'string' || typeof hand2 !== 'string'){
     return 'try again'; 
   }
 
+  //if hand1 or hand2 is not 'rock', 'paper', 'scissors', then try again
   if((hand1.trim().toLowerCase() !== 'scissors' && hand1.trim().toLowerCase() !== 'paper' && hand1.trim().toLowerCase() !== 'rock') || (hand2.trim().toLowerCase() !== 'scissors' && hand2.trim().toLowerCase() !== 'paper' && hand2.trim().toLowerCase() !== 'rock')){
     return 'try again!';
   }
   
-
+  //if both hands are the same then return 'its a tie' 
   if(hand1.trim().toLowerCase() === hand2.trim().toLowerCase()){
     return  'It\'s a tie!'; 
   }else if(hand1.trim().toLowerCase() === 'rock' && hand2.trim().toLowerCase() === 'scissors'){
