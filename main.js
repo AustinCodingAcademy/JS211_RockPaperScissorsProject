@@ -21,7 +21,7 @@ function rockPaperScissors(hand1, hand2){
   
   //if either hand isnt a string, return 'try again'
   if(typeof hand1 !== 'string' || typeof hand2 !== 'string'){
-    return 'try again'; 
+    return 'try again!'; 
   }
 
   //if hand1 or hand2 is not 'rock', 'paper', 'scissors', then try again
@@ -83,6 +83,41 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
+
+    //additional tests
+
+    describe('rps unit test assignment', function(){
+      it('should properly handle whitespace before or afer input', function(){
+        let actual = rockPaperScissors('   rock  ', '   paper');
+        let expected = 'Hand two wins!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should properly handle uppercase letters', function(){
+        let actual = rockPaperScissors('ROCK', 'SCISSORS');
+        let expected = 'Hand one wins!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should only take in string data types', function(){
+        let actual = rockPaperScissors(4, undefined);
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should only take in the word strings rock, paper, and scissors', function(){
+        let actual = rockPaperScissors('coffee', 'tea');
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should handle empty strings and empty input', function(){
+        let actual = rockPaperScissors('', );
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      })
+  
+    });
 } else {
 
   // always returns ask the user for another input
