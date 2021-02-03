@@ -11,17 +11,46 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
-
-  // Write code here
-  // Use the unit test to see what is expected
-
+function displayDate(){
+  let d = new Date(); 
+  document.getElementById("display-element").innerHTML = d; 
+  console.log(d); 
 }
 
-// the first function called in the program to get an input from the user
-// to run the function use the command: node main.js
-// to close it ctrl + C
+function rockPaperScissors(hand1, hand2){
+  
+  //if either hand isnt a string, return 'try again'
+  if(typeof hand1 !== 'string' || typeof hand2 !== 'string'){
+    return 'try again!'; 
+  }
+
+  //if hand1 or hand2 is not 'rock', 'paper', 'scissors', then try again
+  if((hand1.trim().toLowerCase() !== 'scissors' && hand1.trim().toLowerCase() !== 'paper' && hand1.trim().toLowerCase() !== 'rock') || (hand2.trim().toLowerCase() !== 'scissors' && hand2.trim().toLowerCase() !== 'paper' && hand2.trim().toLowerCase() !== 'rock')){
+    return 'try again!';
+  }
+  
+  //if both hands are the same then return 'its a tie' 
+  if(hand1.trim().toLowerCase() === hand2.trim().toLowerCase()){
+    return  'It\'s a tie!'; 
+  }else if(hand1.trim().toLowerCase() === 'rock' && hand2.trim().toLowerCase() === 'scissors'){
+    return 'Hand one wins!';
+  }else if(hand1.trim().toLowerCase() === 'rock' && hand2.trim().toLowerCase() === 'paper'){
+    return 'Hand two wins!';
+  }else if(hand1.trim().toLowerCase() === 'paper' && hand2.trim().toLowerCase() === 'rock'){
+    return 'Hand one wins!'; 
+  }else if(hand1.trim().toLowerCase() === 'paper' && hand2.trim().toLowerCase() === 'scissors'){
+    return 'Hand two wins!'; 
+  }else if(hand1.trim().toLowerCase() === 'scissors' && hand2.trim().toLowerCase() === 'paper'){
+    return 'Hand one wins!'; 
+  }else if(hand1.trim().toLowerCase() === 'scissors' && hand2.trim().toLowerCase() === 'rock'){
+    return 'Hand two wins!'; 
+  }
+}
+
+let r = rockPaperScissors('rock', 'scissors');
+console.log(r); 
+
+
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
@@ -54,6 +83,41 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
+
+    //additional tests
+
+    describe('rps unit test assignment', function(){
+      it('should properly handle whitespace before or afer input', function(){
+        let actual = rockPaperScissors('   rock  ', '   paper');
+        let expected = 'Hand two wins!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should properly handle uppercase letters', function(){
+        let actual = rockPaperScissors('ROCK', 'SCISSORS');
+        let expected = 'Hand one wins!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should only take in string data types', function(){
+        let actual = rockPaperScissors(4, undefined);
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should only take in the word strings rock, paper, and scissors', function(){
+        let actual = rockPaperScissors('coffee', 'tea');
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      });
+  
+      it('should handle empty strings and empty input', function(){
+        let actual = rockPaperScissors('', );
+        let expected = 'try again!'; 
+        assert.equal(actual, expected); 
+      })
+  
+    });
 } else {
 
   // always returns ask the user for another input
