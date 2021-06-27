@@ -28,9 +28,12 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
+
+  // Get rid of whitespaces and make sure everything is lowercase
   let hand1Result = hand1.trim().toLowerCase();
   let hand2Result = hand2.trim().toLowerCase();
 
+  // Make sure the user enters a valid game option
   let validateHand1 = checkInput(hand1Result);
   let validateHand2 = checkInput(hand2Result);
 
