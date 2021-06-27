@@ -16,16 +16,36 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
-
-}
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
+  if(hand1 === 'rock' && hand2 === 'rock'
+  || hand1 === 'paper' && hand2 ==='paper'||
+  hand1 === 'scissors' && hand2 ==='scissors'){
+  return "It's a tie!";
+  
+  }else if(hand1 === 'rock' && hand2 === 'scissors'||
+  hand1 === 'paper' && hand2 === 'rock'||
+  hand1 === 'scissors' && hand2 === 'paper'){
+  return 'Hand one wins!';
+  
+  }else if(hand2 === 'rock' && hand1 === 'rock'||
+  hand2 === 'paper' && hand1 ==='rock'||
+  hand2 === 'scissors' && hand1 === 'paper'){
+  return'Hand two wins!';
+  }else{
+    getPrompt();
+  }
+};
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
 function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+  rl.question('hand1: ', (answer1) => { answer1 = answer1.trim()
+    answer1 = answer1.toLowerCase();
+    rl.question('hand2: ', (answer2) => { answer2 = answer2.trim()
+      answer2 = answer2.toLowerCase();
+      console.log( rockPaperScissors(answer1, answer2).trim().toLowerCase() );
       getPrompt();
     });
   });
