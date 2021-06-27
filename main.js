@@ -12,10 +12,42 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+const checkInput = (input) => {
+  return input === 'rock' || input === 'paper' || input === 'scissors';
+}
+
+const hand1Wins = (hand1, hand2) => {
+  return (hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'rock');
+}
+
+const hand2Wins = (hand1, hand2) => {
+  return (hand2 === 'rock' && hand1 === 'scissors') || (hand2 === 'scissors' && hand1 === 'paper') || (hand2 === 'paper' && hand1 === 'rock');
+}
+
 const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
+  let hand1Result = hand1.trim().toLowerCase();
+  let hand2Result = hand2.trim().toLowerCase();
+
+  let validateHand1 = checkInput(hand1Result);
+  let validateHand2 = checkInput(hand2Result);
+
+  if(validateHand1 && validateHand2) {
+    if (hand1Wins(hand1Result, hand2Result)) {
+      return "Hand one wins!"
+    } else if (hand2Wins(hand1Result, hand2Result)) {
+      return "Hand two wins!"
+    } else {
+      return "It's a tie!";
+    }
+  } else {
+    console.log('You must select between Rock, Paper and Scissors only.');
+  }
+  
+
+
 
 }
 
