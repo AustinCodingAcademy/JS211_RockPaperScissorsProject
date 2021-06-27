@@ -20,10 +20,6 @@ const hand1Wins = (hand1, hand2) => {
   return (hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'rock');
 }
 
-const hand2Wins = (hand1, hand2) => {
-  return (hand2 === 'rock' && hand1 === 'scissors') || (hand2 === 'scissors' && hand1 === 'paper') || (hand2 === 'paper' && hand1 === 'rock');
-}
-
 const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
@@ -38,20 +34,16 @@ const rockPaperScissors = (hand1, hand2) => {
   let validateHand2 = checkInput(hand2Result);
 
   if(validateHand1 && validateHand2) {
-    if (hand1Wins(hand1Result, hand2Result)) {
-      return "Hand one wins!"
-    } else if (hand2Wins(hand1Result, hand2Result)) {
-      return "Hand two wins!"
-    } else {
+    if (hand1Result === hand2Result) {
       return "It's a tie!";
+    } else if (hand1Wins(hand1Result, hand2Result)) {
+      return "Hand one wins!"
+    } else {
+      return "Hand two wins!"
     }
   } else {
     console.log('You must select between Rock, Paper and Scissors only.');
   }
-  
-
-
-
 }
 
 // the first function called in the program to get an input from the user
