@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <hr/>
-    <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
-    <hr/>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  
+</head>
+
+<body>
+  <h1>Hello World!</h1>
+  <hr />
+  <div id="display-element"></div>
+  <input type="text" value="" name="value1" id="first-hand" onkeyup="(storeHands(this.value, this.id))">
+  <input type="text" value="" name="value2" id="second-hand" onkeyup="(storeHands(this.value, this.id))">
+  <button onclick="displayResults()">Click Me</button>
+  <hr />
+  <script src="main.js"></script>
+</body>
+
 </html>
