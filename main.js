@@ -1,6 +1,11 @@
 // uses strict mode so strings are not coerced, variables are not hoisted, etc... 
 'use strict';
 
+let value1 = ""
+let value2 = ""
+
+
+
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -11,11 +16,59 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
+const storeHand = (id,value) => {
+  if (id == "first-hand") {
+    value1 = value 
+  } else if (id == "second-hand") {
+    value2 = value 
+  }
+}
 
-  // Write code here
-  // Use the unit test to see what is expected
+const displayResults = () => {
+  if (value1 && value2){
+    document.getElementById("RPS").innerHTML = rockPaperScissors(value1, value2) 
+  } else {
+    return  document.getElementById("RPS").innerHTML = "FAIL" 
+  }
+}
+
+// the function that will be called by the unit test below
+const rockPaperScissors = (firstHand, secondHand) => {
+  let hand1 = firstHand.toLowerCase().trim()
+  let hand2 = secondHand.toLowerCase().trim()
+
+  // should detect a tie
+
+  if (hand1 === 'rock' && hand2 === 'rock') {
+    return "It's a tie!"
+  }
+  if (hand1 === 'paper' && hand2 === 'paper') {
+    return "It's a tie!"
+  }
+  if (hand1 === 'scissors' && hand2 === 'scissors') {
+    return "It's a tie!"
+  }
+  // should detect which hand won
+
+  if (hand1 === 'rock' && hand2 === 'paper') {
+    return "Hand two wins!"
+  }
+  if (hand1 === 'paper' && hand2 === 'scissors') {
+    return "Hand two wins!"
+  }
+  if (hand1 === 'rock' && hand2 === 'scissors') {
+    return "Hand one wins!"
+  }
+
+  if (hand1 === 'paper' && hand2 === 'scissors') {
+    return "Hand one wins!"
+  }
+  if (hand1 === 'scissors' && hand2 === 'rock') {
+    return "Hand two wins!"
+  }
+  if (hand1 === 'scissors' && hand2 === 'paper') {
+    return "Hand one wins!"
+  }
 
 }
 
@@ -25,7 +78,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
@@ -52,6 +105,10 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should test for input before next turn', () => {
+      assert.equal(rockPaperScissors(undefined, 'paper'), "You going to let the other player win?");
+      assert.equal(rockPaperScissors('Paper', undefined), "Seriously? Make a play!");
     });
   });
 } else {
