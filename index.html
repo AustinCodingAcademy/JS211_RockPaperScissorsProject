@@ -3,13 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="main.js"></script>
   </head>
   <body>
     <h1>Hello World!</h1>
     <hr/>
     <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
+
+
+    <button onclick="displayResults()">Click Me</button>
+
+    <label for="value1">Hand 1</label>
+    <input type="text" id="first-hand" name="value1" onkeyup="storeHand(this.id, this.value)"></input>
+    <label for="value2">Hand 2</label>
+    <input type="text" id="second-hand" name="value2" onkeyup="storeHand(this.id, this.value)"></input>
+
+
+    <script src="main.js"></script>
     <hr/>
   </body>
 </html>
