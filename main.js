@@ -12,12 +12,30 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+let scissors = "scissors"
+let paper = "paper"
+let rock = "rock"
 const rockPaperScissors = (hand1, hand2) => {
-
-  // Write code here
-  // Use the unit test to see what is expected
-
-}
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.toLowerCase();
+  hand1 = hand1.trim();
+  hand2 = hand2.trim();
+  if(hand1 == hand2 && hand1 != ""){
+    return "It's a tie!";
+  }
+  if(hand1 == rock && hand2 == scissors ||hand1 == paper && hand2 == rock || hand1 == scissors && hand2 == paper){
+    return "Hand one wins!";
+  }
+  if(hand2 == rock && hand1 == scissors ||hand2 == paper && hand1 == rock || hand2 == scissors && hand1 == paper){
+    return "Hand two wins!";
+  }
+  if(hand1 == "" || hand2 == ""){
+    return "Try this again. You didn't input anything."
+  }
+  else{
+    return "Take that weapon elsewhere! Approved weapons only!"
+  }
+};
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -52,6 +70,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should detect empty string in input', () =>{
+      assert.equal(rockPaperScissors('', ''), "Try this again. You didn't input anything.");
     });
   });
 } else {
