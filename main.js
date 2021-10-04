@@ -1,4 +1,4 @@
-// uses strict mode so strings are not coerced, variables are not hoisted, etc... 
+// uses strict mode so strings are not coerced, variables are not hoisted, etc...
 'use strict';
 
 // brings in the assert module for unit testing
@@ -14,6 +14,52 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
+   hand1 = hand1.toLowerCase().trim();
+   console.log('hand1',hand1);
+   hand2 = hand2.toLowerCase().trim();
+   console.log("hand 2", hand2);
+
+  if(hand1== 'saw'|| hand1 =='hammer'|| hand2=='saw'||hand2=='hammer'){
+    return 'no tools allowed'
+  };
+  if(hand1== 'casa'|| hand1 =='la manzana es muy rico'|| hand2=='casa'||hand2=='la manzana es muy rico'){
+    return 'sorry no spanish'
+  };
+  if(hand1== 'pencil'|| hand1 =='pen'|| hand2=='pencil'||hand2=='pen'){
+    return 'sorry, needs to be rock,paper, or scissors'
+  }
+  if(hand1== 'Trump'|| hand1 =='Biden'|| hand2=='Trump'||hand2=='Biden'){
+    return 'bad input'
+  }
+
+
+
+
+
+
+  if(hand1 !== 'rock'&&hand1 !=="scissors"&&hand1!=='paper' ){
+    return 'bad input';
+
+  }
+  if(hand2 !== 'rock'&&hand2 !=="scissors"&&hand2!=='paper' ){
+    return 'bad input';
+
+  }
+  if(hand1 === hand2){
+    return "It's a tie!";
+  } else if(hand1 === 'rock' && hand2 === 'paper')  {
+    return "Hand two wins!";
+  } else if(hand1 === 'paper' && hand2 === 'scissors')  {
+    return "Hand two wins!";
+  } else if(hand1 === 'scissors' && hand2 === 'rock')  {
+    return "Hand two wins!";
+  } else if(hand1 === 'paper' && hand2 === 'rock')  {
+    return "Hand one wins!";
+  } else if(hand1 === 'scissors' && hand2 === 'paper')  {
+    return "Hand one wins!";
+  } else if(hand1 === 'rock' && hand2 === 'scissors')  {
+    return "Hand one wins!";
+  }
   // Write code here
   // Use the unit test to see what is expected
 
@@ -54,6 +100,36 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
+  // additional tests!
+  describe('RPS unit test assignment', ()=>{
+
+    it('should handle bad input', ()=>{
+      let actual = rockPaperScissors('poop','spider');
+      let expected = 'bad input';
+      assert.equal(actual, expected);
+    })
+    it('shouldnt handle tools', ()=>{
+      let actual = rockPaperScissors('saw','hammer');
+      let expected = 'no tools allowed';
+      assert.equal(actual, expected);
+    })
+    it('shouldnt handle spanish words', ()=>{
+      let actual = rockPaperScissors("casa",'la manzana es muy rico');
+      let expected = "sorry no spanish";
+      assert.equal(actual, expected);
+    })
+    it('synonyms',()=>{
+      let actual = rockPaperScissors('pencil','pen');
+      let expected = 'sorry, needs to be rock, paper, or scissors';
+      assert.equal(actual, expected);
+
+    })
+    it('politics',()=>{
+      let actual = rockPaperScissors('Trump',"Biden");
+      let expected = "bad input";
+      assert.equal(actual,expected);
+    })
+  })
 } else {
 
   // always returns ask the user for another input
