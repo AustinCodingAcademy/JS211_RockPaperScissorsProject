@@ -16,15 +16,15 @@ const rockPaperScissors = (h1, h2) => {
 const hand1 = h1.toLowerCase().trim()
 const hand2 = h2.toLowerCase().trim()
 
-  if (hand1 == hand2) {
+  if (h1 == h2) {
     return "It's a tie!"
   }
 
-  if (hand1 == "rock" && hand2 == "paper") {
+  if (h1 == "rock" && h2 == "paper") {
     return "Hand two wins!"
-  } else if (hand1 == "paper" && hand2 == "scissors"){
+  } else if (h1 == "paper" && h2 == "scissors"){
   return "Hand two wins!"
-  } else if (hand1 == "rock" && hand2 == "scissors"){
+  } else if (h1 == "rock" && h2 == "scissors"){
     return "Hand one wins!"
   }
 
@@ -41,7 +41,7 @@ const hand2 = h2.toLowerCase().trim()
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
