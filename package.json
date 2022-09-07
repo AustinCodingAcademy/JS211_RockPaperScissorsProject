@@ -19,14 +19,14 @@
   },
   "homepage": "https://github.com/AustinCodingAcademy/JS211_RockPaperScissorsProject#readme",
   "dependencies": {
-    "eslint": "^3.19.0",
-    "functional-javascript-workshop": "^1.0.6",
+    "eslint": "^8.23.0",
+    "functional-javascript-workshop": "^0.0.23",
     "htmllint-cli": "github:kevincolten/htmllint-cli",
-    "http-server": "^0.11.1",
-    "javascripting": "^2.6.1",
-    "jsdom": "^11.6.2",
-    "mocha": "^5.0.0",
+    "http-server": "^14.1.1",
+    "javascripting": "^2.4.0",
+    "jsdom": "^20.0.0",
+    "mocha": "^10.0.0",
     "postcss-html": "^0.34.0",
-    "stylelint": "^7.13.0"
+    "stylelint": "^14.11.0"
   }
 }
