@@ -1,4 +1,4 @@
-// uses strict mode so strings are not coerced, variables are not hoisted, etc... 
+;// uses strict mode so strings are not coerced, variables are not hoisted, etc... 
 'use strict';
 
 // brings in the assert module for unit testing
@@ -9,10 +9,27 @@ const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
+}); 
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
+const rockPaperScissors = (h1, h2) => {
+  const hand1 = h1.toLowerCase().trim()
+  const hand2 = h2.toLowerCase().trim()
+  if (hand1 == hand2) {
+    return "It's a tie!"
+  }
+  if (hand1 == "rock" && hand2 == "paper") {
+    return "Hand two wins!"
+  } 
+  
+  else if (hand1 == "paper" && hand2 == "scissors"){
+    return "Hand two wins!"
+    } 
+    
+  else if (hand1 == "rock" && hand2 == "scissors"){
+      return "Hand one wins!"
+    }
+
 
   // Write code here
   // Use the unit test to see what is expected
@@ -25,7 +42,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
