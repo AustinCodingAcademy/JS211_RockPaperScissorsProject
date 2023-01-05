@@ -9,25 +9,26 @@ const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-}); // not original and that is added to get the inout output - Ramya 
+}); 
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (h1, h2) => {
-const hand1 = h1.toLowerCase().trim()
-const hand2 = h2.toLowerCase().trim()
-
-  if (h1 == h2) {
+  const hand1 = h1.toLowerCase().trim()
+  const hand2 = h2.toLowerCase().trim()
+  if (hand1 == hand2) {
     return "It's a tie!"
   }
-
-  if (h1 == "rock" && h2 == "paper") {
+  if (hand1 == "rock" && hand2 == "paper") {
     return "Hand two wins!"
-  } else if (h1 == "paper" && h2 == "scissors"){
-  return "Hand two wins!"
-  } else if (h1 == "rock" && h2 == "scissors"){
-    return "Hand one wins!"
-  }
-
+  } 
+  
+  else if (hand1 == "paper" && hand2 == "scissors"){
+    return "Hand two wins!"
+    } 
+    
+  else if (hand1 == "rock" && hand2 == "scissors"){
+      return "Hand one wins!"
+    }
 
 
   // Write code here
