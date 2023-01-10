@@ -13,11 +13,54 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+  const trimmedPlayer1Input = hand1.trim().toLowerCase();
+  const trimmedPlayer2Input = hand2.trim().toLowerCase();
 
-  // Write code here
-  // Use the unit test to see what is expected
+  switch (trimmedPlayer1Input) {
+    case trimmedPlayer2Input:
+      return "It's a tie!";
+    case 'rock':
+      return trimmedPlayer2Input === 'paper' ? "Hand two wins!" : "Hand one wins!";
+    case 'paper':
+      return trimmedPlayer2Input === 'scissors' ? "Hand two wins!" : "Hand one wins!";
+    case 'scissors':
+      return trimmedPlayer2Input === 'rock' ? "Hand two wins!" : "Hand one wins!";
+  }
+  
+  
+  // if(trimmedPlayer1Input === trimmedPlayer2Input){
+  //   return "It's a tie!";
+  // }
+
+  // if(trimmedPlayer1Input === 'rock'){
+  //   if(trimmedPlayer2Input === 'paper'){
+  //     return "Hand two wins!";
+  //   }
+  //   else{
+  //     return "Hand one wins!";
+  //   }
+  // }
+
+  // if(trimmedPlayer1Input === 'paper'){
+  //   if(trimmedPlayer2Input === 'scissors'){
+  //     return "Hand two wins!";
+  //   }
+  //   else{
+  //     return "Hand one wins!";
+  //   }
+  // }
+
+  // if(trimmedPlayer1Input === 'scissors'){
+  //   if(trimmedPlayer2Input === 'rock'){
+  //     return "Hand two wins!";
+  //   }
+  //   else{
+  //     return "Hand one wins!";
+  //   }
+  // }
 
 }
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -60,3 +103,4 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
