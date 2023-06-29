@@ -14,10 +14,53 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
-  // Write code here
-  // Use the unit test to see what is expected
+  let handOne = hand1.toLowerCase().trim();
+  let handTwo = hand2.toLowerCase().trim();
 
-}
+  if (handOne == handTwo) {
+    return "It's a tie!"
+  } else if (handOne == 'rock') {
+      if(handTwo == 'paper') {
+        //paper wins
+        return "Hand two wins!"
+      } else {
+        // scissors
+        return "Hand one wins!"
+
+      }
+  } else if (handOne == 'paper') {
+      if(handTwo == 'rock') {
+        //paper wins
+        return "Hand one wins!"
+      } else {
+        //scissors win
+        return "Hand two wins!"
+      }      
+  } else if (handOne == 'scissors') {
+    if (handTwo == 'rock') {
+      //rock wins
+      return "Hand two wins!"
+    } else {
+      //paper, so scissors wins
+      return "Hand one wins!"
+    }
+  }
+  
+}  // end function
+
+
+
+  // If User1 input is 'rock' and User2 input is 'rock', it's a tie.
+  // If User1 input is 'paper' and User2 input is 'paper', it's a tie.
+  // If User1 input is 'scissors' and User2 input is 'scissors', it's a tie.
+
+  // If User1 input is 'rock' and User2 input is 'scissors', User1 wins.
+  // If User1 input is 'rock' and User2 input is 'paper', User2 wins.
+  // If User1 input is 'paper' and User2 input is 'rock', User1 wins.
+  // If User1 input is 'paper' and User2 input is 'scissors', User2 wins.
+  // If User1 input is 'scissors' and User2 input is 'paper', User1 wins.
+  // If User1 input is 'scissors' and User2 input is 'rock', User2 wins.
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
