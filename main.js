@@ -16,39 +16,69 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
-  let handOne = hand1.toLowerCase().trim();
-  let handTwo = hand2.toLowerCase().trim();
+  const rockPaperScissors = (hand1, hand2) => {
 
-  if (handOne == handTwo) {
-    return "It's a tie!"
-  } else if (handOne == 'rock') {
-      if(handTwo == 'paper') {
-        //paper wins
-        return "Hand two wins!"
-      } else {
-        // scissors
-        return "Hand one wins!"
-
-      }
-  } else if (handOne == 'paper') {
-      if(handTwo == 'rock') {
-        //paper wins
-        return "Hand one wins!"
-      } else {
-        //scissors win
-        return "Hand two wins!"
-      }      
-  } else if (handOne == 'scissors') {
-    if (handTwo == 'rock') {
-      //rock wins
+    // use the string method trim() along with the string method toLowercase(); for scrubbing input to ensure lowercase with trimmed whitespace
+    hand1 = hand1.trim()
+    hand1 = hand1.toLowerCase()
+    hand2 = hand2.trim()
+    hand2 = hand2.toLowerCase()
+    
+    // logic for tie
+    if (hand1 === hand2) {
+      return "It's a tie!"
+    }
+  
+    // logic for which hand won
+    if (hand1 === 'rock' && hand2 === 'paper') {
       return "Hand two wins!"
-    } else {
-      //paper, so scissors wins
+    } else if (hand1 === 'rock' && hand2 === 'scissors') {
+      return "Hand one wins!"
+    } else if (hand1 === 'paper' && hand2 === 'scissors') {
+      return "Hand two wins!"
+    } else if (hand1 === 'paper' && hand2 === 'rock') {
+      return "Hand one wins!"
+    } else if (hand1 === 'scissors' && hand2 === 'rock') {
+      return "Hand two wins!"
+    } else if (hand1 === 'scissors' && hand2 === 'paper') {
       return "Hand one wins!"
     }
   }
+}
+  // let handOne = hand1.toLowerCase().trim();
+  // let handTwo = hand2.toLowerCase().trim();
+
+  // if (handOne == handTwo) {
+  //   return "It's a tie!"
+  // } else if (handOne == 'rock') {
+  //     if(handTwo == 'paper') {
+  //       //paper wins
+  //       return "Hand two wins!"
+  //     } else {
+  //       // scissors
+  //       return "Hand one wins!"
+
+  //     }
+  // } else if (handOne == 'paper') {
+  //     if(handTwo == 'rock') {
+  //       //paper wins
+  //       return "Hand one wins!"
+  //     } else {
+  //       //scissors win
+  //       return "Hand two wins!"
+  //     }      
+  // } else if (handOne == 'scissors') {
+  //   if (handTwo == 'rock') {
+  //     //rock wins
+  //     return "Hand two wins!"
+  //   } else {
+  //     //paper, so scissors wins
+  //     return "Hand one wins!"
+  //   }
+//   }
   
-}  // end function
+// } 
+// end function
 
 
 
