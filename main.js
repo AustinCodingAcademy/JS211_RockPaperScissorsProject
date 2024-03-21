@@ -16,7 +16,30 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
 
+
+  //Pass results back
+  let result;
+
+
+  if (hand1 === hand2){
+    result = "It's a tie!";
+    return result;
+
+    
+  } else if ((hand1 == 'paper' && hand2 == 'rock' ) || (hand1 == 'rock' && hand2 == 'scissors') || (hand1 == 'scissors' && hand2 == 'paper' )) {
+    // All the conditions for Hand 1 to win.
+    result = "Hand one wins!";
+    return result;
+
+
+  } else if ((hand2 == 'paper' && hand1 == 'rock') || (hand2 == 'rock' && hand1 == 'scissors' ) || (hand2 == 'scissors' && hand1 == 'paper')) {
+    // All the conditions for Hand 2 to win.
+    result = "Hand two wins!";
+    return result;
+  }
 }
 
 // the first function called in the program to get an input from the user
